@@ -1,7 +1,7 @@
 import{ useState } from 'react';
 import { ContactsForm, Title, Label, LabelTitle, Input, Button } from './ContactForm.styled';
 import { useDispatch, useSelector } from 'react-redux';
-import { addContact } from '../../redux/operations';
+import { addContact } from '../../redux/contacts/contacts-operations';
 import { nanoid } from 'nanoid';
 import { ToastContainer, toast } from 'react-toastify';
 

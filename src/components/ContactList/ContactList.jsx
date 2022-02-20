@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { deleteContact } from '../../redux/operations';
+import { deleteContact } from '../../redux/contacts/contacts-operations';
 import { ContactListStyle, Item, Name, Button } from './ContactList.styled';
 import propTypes from "prop-types";
 
@@ -18,7 +18,8 @@ const ContactList = () => {
   const filter = useSelector(state => state.filter);
   const items = useSelector(state => state.items);
 
-return (<ContactListStyle>
+  return (items.length > 0 ?
+    <ContactListStyle>
     {getFilteredContacts(items, filter).map(({ id, name, phone }) => (
       <Item key={id}>
         <Name>{name}</Name>: {phone}
@@ -27,7 +28,7 @@ return (<ContactListStyle>
         </Button>
       </Item>
     ))}
-  </ContactListStyle>)
+  </ContactListStyle> : <p>Your phonebook is empty</p>)
 };
 
 ContactList.propTypes = {
